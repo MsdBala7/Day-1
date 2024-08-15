@@ -1,0 +1,63 @@
+ HTTP 1.1 vs HTTP 2
+
+About HTTP
+HTTP stands for Hypertext Transfer Protocol,which is a protocol used for transmitting data over the internet.It is the foundation of data communication in the world wide web.
+
+Evolution of HTTP
+The evolution of HTTP from its initial version to HTTP/1.1 and then to HTTP/2 involved a combination of standardization efforts,technological advancements,and the need to address performance limitations. This are the evolution of HTTP into HTTP/0.9.It is initially started a simple protocol, Which was designed for transferring hypertext documents(HTML)over the internet
+           HTTP/0.9 was a basic protocol with limited functionality. It only supported the GET method for retrieving documents and did not include header or status codes.so we use to nowadays popularity wise HTTP/1.1 and HTTP/2
+
+HTTP/1.1 vs HTTP2
+
+HTTP /1.1 
+NO Multiplexing: In HTTP/1.1, each request and response is sent over  a separate TCP connection,which means only one request can be processed at a time per connection, this leads to head-of- line blocking,Where subsequent request have to wait for earlier ones to complete,slowing down the overall performance.
+
+     2.TEXT- BASED PROTOCOL: It is a text-based protocol,which means headers and data transmitted as plain text.While human - readable, this format can be less efficient compared to binary formats because it requires parsing at both ends, leading to increased overhead.
+
+    3.HEADER REDUNDANCY: Headers are repeated for each requested for each request and response, which can result in redundancy and increased data overhead,especially for larger payloads or when multiple requests are made
+
+    4.SERVER PUSH: It does not support server push, meaning the server cannot proactively send additional resources to the client without explicit request. This can result in suboptimal performance ,especially for web pages with multiple resources.
+
+HTTP/2:
+   1.MULTIPLEXING: It introduces multiplexing,allowing multiple requests,allowing multiple requests and responses to be sent and received simultaneously over a single TCP connection .This eliminates head-of-line blocking and improves efficiency by making better use of available network resources.  
+
+    2.BINARY PROTOCOL: In binary protocol ,which means headers and data are transmitted in binary format rather than plain text .This format is more efficient to parse and compress,leading to reduced overhead and improved efficiency
+
+  3. HEADER COMPRESSION:It includes header compression , reducing the size of headers sent over the network. This minimize redundant data and further improves performances, especially for request with large header
+
+   4.SERVER PUSH: It introduces server push,allowing the server to proactively send additional resources to the client without waiting for explicit requests. This can improve page load times by reducing the number of round tips required to fetch resources.
+
+   5. REQUEST PRIORITIZATION: It allows clients to assign priorities to request, enabling them to specify which resources are more important and should be delivered first. This helps optimize resource allocation and improves overall performances.
+
+
+CONCLUSION:
+                         Overall, HTTP/2 offers significant performance improvements over HTTP/1.1 due to features like multiplexing, binary protocol, header compression, server push, and request prioritization.
+
+                         OBJECTS & ITS INTERNAL REPRESENTATION IN JAVASCRIPT
+
+
+In JavaScript , Objects are one of the fundamental data types, and they are used to store collections of key-value pairs.The internal representation of objects in JavaScript varies between different Javascript engines(like V8 in chrome or SpiderMonkey in Firefox),but generally,objects are implemented using combination and prototypes.
+
+1.Properties
+                     Properties are essentially key-value pairs,where the key is a string (or a Symbol since ES6) and the value can be any JavaScript data type ,including other objects,functions,or primitive values. Properties can be added, modified,or deleted from an object at runtime.
+
+2.Prototypes
+                     JavaScript Objects also have an internal [[Prototypes]] property, which is a reference to another object. This allows objects to inherit properties and methods from other objects.When you access a property or method on an object,if that property or method doesn’t exist on the object itself, JavaScript will look for it, find it or reach the end of the chain(Object.Prototype).
+
+Prototype Chain: This is a series of objects linked together through their prototype properties. When you access a property or method on an object, Javascript looks for it first on the object itself, then on its prototype,then on the prototype's prototype, and so on, until it finds the property/method or reaches the end of the chain.
+Prototype Inheritance: Objects inherit properties and methods from their prototypes,and this forms the basis of prototype-based inheritance in JavaScript. This means that if you add a property or method to an object’s prototype,all objects that inherit from that prototype will have access to it.
+
+3.Internal representation
+
+            Internally, JavaScript engines typically use various data structures to represent objects efficiently. These data structures may include hash tables(for prototypes),linked list of trees(for prototype chain), and pointer/references (for connecting objects).
+
+Here’s simple example to illustrate the concept:
+
+// creating an object
+Let obj1 = {key: ‘value’;
+Let obj2 = obj1; // obj2 now reference the same object as obj1
+
+Obj2.key = ‘ new value’;
+console.log(obj1.key);  // Output: ‘new value’
+
+In this example, changing the property value through ‘obj2’ also changes it in ‘obj1’ because both variables reference the same object in memory.

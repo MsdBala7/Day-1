@@ -1,0 +1,40 @@
+THE  DIFFERENCE BETWEEN DOCUMENT AND WINDOW OBJECTS
+
+
+
+In javascript , both document and window are essential objects that play crucial roles in web development. Here’s a straight forward explanation of difference between document and window object
+
+The window object
+
+Scope : Represents the entire browser window or frame that  displays the web page
+Purpose : Manages the browser context and environment.
+Key functions :
+       * Global object  : Holds global variables and functions. For example, if you declare var X = 5;, it is accessible as window.x.
+      * Browser control : Provides methods to control the browser, such as window.alert(), window.open(), and window.close().
+      * Event Handling : Manages events like resizing (window.onresize) and scrolling (window.onscroll)
+
+
+The document object
+
+Scope :  Represents the HTML document currently loaded in the browser.
+Purpose : Provides access to and manipulation of the content within the webpage
+Key functions : 
+       * DOM Manipulation : Allows you to interact with the document object model (DOM) . For example, document.getElementById(‘id’) retrieves an element by its ID.
+       * Content Access :  Lets you read and modify the content of the web page, such as document.title to get or set the page title.
+                * Element Creation : Methods  like document.createElement() allow you 
+          to create  new HTML elements dynamically.
+KEY DIFFERENCES       
+
+CONTEXT : 
+       *Window :  Controls the entire browser window, including global settings and interactions with the browser
+      *Document : Focuses on the specific content and structure of the currently loaded HTML page.
+
+USAGE : 
+       *Window : Used for tasks that involve the browser itself, such as opening new windows or handling global events 
+                  *Document : Used for tasks that involve the content of the web page ,   
+           Such as manipulating the HTML elements or reading the page’s content.
+
+ACCESSING ELEMENTS : 
+                  *Window : Access global properties and methods.
+                   *Document : Access and manipulate elements within the HTML   
+          documents
